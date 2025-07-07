@@ -1,5 +1,3 @@
-Arquivo main.sh
-
 #!/bin/bash
 
 # Obtenha os inputs da action
