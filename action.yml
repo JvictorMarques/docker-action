@@ -1,0 +1,30 @@
+name: "Adiciona comentário a issue ou pull request"
+description: "Essa action inclui comentário em issues ou PRs"
+author: "JvictorMarques"
+inputs:
+  GITHUB_TOKEN:
+    description: "Token de autenticação do GitHub"
+    required: true
+  issue-id:
+    description: "ID da issue ou pull request"
+    required: true
+  comment:
+    description: "Comentário a ser adicionado"
+    required: true
+  GITHUB_REPOSITORY:
+    description: "ID do repositorio"
+    required: true
+outputs:
+  comment-id:
+    description: "ID do comentário adicionado"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '${{ inputs.GITHUB_TOKEN }}'
+    - '${{ inputs.issue-id }}'
+    - '${{ inputs.comment }}'
+    - '${{ inputs.GITHUB_REPOSITORY }}'
+branding:
+  icon: "message-square"
+  color: "blue"
